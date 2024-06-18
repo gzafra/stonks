@@ -16,15 +16,16 @@
 		B61366CD2C21783A006BD2C5 /* StocksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61366CC2C21783A006BD2C5 /* StocksListViewModel.swift */; };
 		B61366CF2C217AC6006BD2C5 /* StockItemState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61366CE2C217AC6006BD2C5 /* StockItemState.swift */; };
 		B61366D22C219B45006BD2C5 /* AnimatingCellHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61366D12C219B45006BD2C5 /* AnimatingCellHeight.swift */; };
+		B61366D82C21B5CE006BD2C5 /* StockSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61366D72C21B5CE006BD2C5 /* StockSearchView.swift */; };
+		B61366DA2C21B703006BD2C5 /* StockSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61366D92C21B703006BD2C5 /* StockSearchViewModel.swift */; };
+		B61366DC2C21B777006BD2C5 /* StockSearchItemState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61366DB2C21B777006BD2C5 /* StockSearchItemState.swift */; };
 		B699C5412C1848A600C10AA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699C5402C1848A600C10AA0 /* AppDelegate.swift */; };
 		B699C5432C1848A600C10AA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699C5422C1848A600C10AA0 /* SceneDelegate.swift */; };
-		B699C5452C1848A600C10AA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699C5442C1848A600C10AA0 /* ViewController.swift */; };
 		B699C54A2C1848A800C10AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B699C5492C1848A800C10AA0 /* Assets.xcassets */; };
 		B699C54D2C1848A800C10AA0 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B699C54C2C1848A800C10AA0 /* Base */; };
 		B699C5582C1848A800C10AA0 /* StonksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699C5572C1848A800C10AA0 /* StonksTests.swift */; };
 		B699C5622C1848A800C10AA0 /* StonksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699C5612C1848A800C10AA0 /* StonksUITests.swift */; };
 		B699C5642C1848A800C10AA0 /* StonksUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699C5632C1848A800C10AA0 /* StonksUITestsLaunchTests.swift */; };
-		B699C5742C184CE800C10AA0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699C5732C184CE800C10AA0 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,10 +55,12 @@
 		B61366CC2C21783A006BD2C5 /* StocksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksListViewModel.swift; sourceTree = "<group>"; };
 		B61366CE2C217AC6006BD2C5 /* StockItemState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockItemState.swift; sourceTree = "<group>"; };
 		B61366D12C219B45006BD2C5 /* AnimatingCellHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingCellHeight.swift; sourceTree = "<group>"; };
+		B61366D72C21B5CE006BD2C5 /* StockSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchView.swift; sourceTree = "<group>"; };
+		B61366D92C21B703006BD2C5 /* StockSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchViewModel.swift; sourceTree = "<group>"; };
+		B61366DB2C21B777006BD2C5 /* StockSearchItemState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchItemState.swift; sourceTree = "<group>"; };
 		B699C53D2C1848A600C10AA0 /* Stonks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stonks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B699C5402C1848A600C10AA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B699C5422C1848A600C10AA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B699C5442C1848A600C10AA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B699C5492C1848A800C10AA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B699C54C2C1848A800C10AA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B699C54E2C1848A800C10AA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,7 +69,6 @@
 		B699C55D2C1848A800C10AA0 /* StonksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StonksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B699C5612C1848A800C10AA0 /* StonksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StonksUITests.swift; sourceTree = "<group>"; };
 		B699C5632C1848A800C10AA0 /* StonksUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StonksUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B699C5732C184CE800C10AA0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,6 @@
 		B61366BE2C1AD1C7006BD2C5 /* StocksList */ = {
 			isa = PBXGroup;
 			children = (
-				B61366C42C1ADA26006BD2C5 /* Services */,
 				B61366C22C1AD238006BD2C5 /* ViewModel */,
 				B61366C12C1AD22C006BD2C5 /* View */,
 				B61366BF2C1AD1D9006BD2C5 /* StocksListFactory.swift */,
@@ -140,13 +141,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		B61366C42C1ADA26006BD2C5 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		B61366C72C2177C8006BD2C5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +156,39 @@
 				B61366D12C219B45006BD2C5 /* AnimatingCellHeight.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		B61366D32C21B509006BD2C5 /* StockSearch */ = {
+			isa = PBXGroup;
+			children = (
+				B61366D62C21B5BB006BD2C5 /* ViewModel */,
+				B61366D52C21B5B5006BD2C5 /* View */,
+			);
+			path = StockSearch;
+			sourceTree = "<group>";
+		};
+		B61366D42C21B55C006BD2C5 /* AddStock */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddStock;
+			sourceTree = "<group>";
+		};
+		B61366D52C21B5B5006BD2C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B61366D72C21B5CE006BD2C5 /* StockSearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B61366D62C21B5BB006BD2C5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B61366D92C21B703006BD2C5 /* StockSearchViewModel.swift */,
+				B61366DB2C21B777006BD2C5 /* StockSearchItemState.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B699C5342C1848A600C10AA0 = {
@@ -215,6 +242,7 @@
 		B699C5702C18492800C10AA0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B61366D02C219B36006BD2C5 /* ViewModifiers */,
 				B699C5422C1848A600C10AA0 /* SceneDelegate.swift */,
 				B699C5402C1848A600C10AA0 /* AppDelegate.swift */,
 			);
@@ -224,11 +252,10 @@
 		B699C5712C18492E00C10AA0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				B61366D02C219B36006BD2C5 /* ViewModifiers */,
+				B61366D42C21B55C006BD2C5 /* AddStock */,
+				B61366D32C21B509006BD2C5 /* StockSearch */,
 				B61366BE2C1AD1C7006BD2C5 /* StocksList */,
 				B61366B92C1AC39E006BD2C5 /* RootTabBar */,
-				B699C5442C1848A600C10AA0 /* ViewController.swift */,
-				B699C5732C184CE800C10AA0 /* MainView.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -372,11 +399,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B699C5452C1848A600C10AA0 /* ViewController.swift in Sources */,
 				B61366CB2C217810006BD2C5 /* WatchedStockItemView.swift in Sources */,
+				B61366D82C21B5CE006BD2C5 /* StockSearchView.swift in Sources */,
+				B61366DA2C21B703006BD2C5 /* StockSearchViewModel.swift in Sources */,
 				B61366BB2C1AC3C0006BD2C5 /* RootTabBarController.swift in Sources */,
 				B61366C02C1AD1D9006BD2C5 /* StocksListFactory.swift in Sources */,
-				B699C5742C184CE800C10AA0 /* MainView.swift in Sources */,
+				B61366DC2C21B777006BD2C5 /* StockSearchItemState.swift in Sources */,
 				B61366D22C219B45006BD2C5 /* AnimatingCellHeight.swift in Sources */,
 				B699C5412C1848A600C10AA0 /* AppDelegate.swift in Sources */,
 				B61366CD2C21783A006BD2C5 /* StocksListViewModel.swift in Sources */,
