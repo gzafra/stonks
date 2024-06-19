@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Quote {
+struct Quote: Identifiable {
+    var id: String {
+        self.symbol
+    }
+    
     let type: QuoteType
     let changePercent: Double
     let price: Double

@@ -43,6 +43,11 @@
 		B6A9169C2C22E2D2007071FF /* StockSearchRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A9169B2C22E2D2007071FF /* StockSearchRemoteRepository.swift */; };
 		B6A9169E2C22E34D007071FF /* StockSearchFinanceApiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A9169D2C22E34D007071FF /* StockSearchFinanceApiDataSource.swift */; };
 		B6A916A02C22E38B007071FF /* GetQuoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A9169F2C22E38B007071FF /* GetQuoteUseCase.swift */; };
+		B6A916A42C22E748007071FF /* InMemoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A916A32C22E748007071FF /* InMemoryDataSource.swift */; };
+		B6A916A62C22E77F007071FF /* DataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A916A52C22E77F007071FF /* DataSourceProtocol.swift */; };
+		B6A916A82C22E79B007071FF /* Array+ReplaceOcurrences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A916A72C22E79B007071FF /* Array+ReplaceOcurrences.swift */; };
+		B6A916AA2C22E818007071FF /* StockSearchLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A916A92C22E818007071FF /* StockSearchLocalRepository.swift */; };
+		B6A916AD2C22F188007071FF /* StockSearchItemViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A916AC2C22F187007071FF /* StockSearchItemViewModelMapper.swift */; };
 		B8F4C26C595682E1AEE7D317 /* Pods_Stonks_StonksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C273BD89B95C47E3E84E3DFC /* Pods_Stonks_StonksUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +115,11 @@
 		B6A9169B2C22E2D2007071FF /* StockSearchRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchRemoteRepository.swift; sourceTree = "<group>"; };
 		B6A9169D2C22E34D007071FF /* StockSearchFinanceApiDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchFinanceApiDataSource.swift; sourceTree = "<group>"; };
 		B6A9169F2C22E38B007071FF /* GetQuoteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQuoteUseCase.swift; sourceTree = "<group>"; };
+		B6A916A32C22E748007071FF /* InMemoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryDataSource.swift; sourceTree = "<group>"; };
+		B6A916A52C22E77F007071FF /* DataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceProtocol.swift; sourceTree = "<group>"; };
+		B6A916A72C22E79B007071FF /* Array+ReplaceOcurrences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ReplaceOcurrences.swift"; sourceTree = "<group>"; };
+		B6A916A92C22E818007071FF /* StockSearchLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchLocalRepository.swift; sourceTree = "<group>"; };
+		B6A916AC2C22F187007071FF /* StockSearchItemViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchItemViewModelMapper.swift; sourceTree = "<group>"; };
 		C273BD89B95C47E3E84E3DFC /* Pods_Stonks_StonksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stonks_StonksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -245,6 +255,7 @@
 		B61366D62C21B5BB006BD2C5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B6A916AB2C22F172007071FF /* Mapper */,
 				B61366D92C21B703006BD2C5 /* StockSearchViewModel.swift */,
 				B61366DB2C21B777006BD2C5 /* StockSearchItemState.swift */,
 			);
@@ -304,8 +315,8 @@
 		B699C5702C18492800C10AA0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B6A916A12C22E71C007071FF /* Data */,
 				B6A916922C22D65C007071FF /* Domain */,
-				B6A916762C22C9D2007071FF /* Network */,
 				B61366D02C219B36006BD2C5 /* ViewModifiers */,
 				B699C5422C1848A600C10AA0 /* SceneDelegate.swift */,
 				B699C5402C1848A600C10AA0 /* AppDelegate.swift */,
@@ -435,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				B6A9169B2C22E2D2007071FF /* StockSearchRemoteRepository.swift */,
+				B6A916A92C22E818007071FF /* StockSearchLocalRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -446,6 +458,33 @@
 				B6A9169D2C22E34D007071FF /* StockSearchFinanceApiDataSource.swift */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		B6A916A12C22E71C007071FF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B6A916A22C22E728007071FF /* Local */,
+				B6A916762C22C9D2007071FF /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B6A916A22C22E728007071FF /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				B6A916A32C22E748007071FF /* InMemoryDataSource.swift */,
+				B6A916A52C22E77F007071FF /* DataSourceProtocol.swift */,
+				B6A916A72C22E79B007071FF /* Array+ReplaceOcurrences.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		B6A916AB2C22F172007071FF /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				B6A916AC2C22F187007071FF /* StockSearchItemViewModelMapper.swift */,
+			);
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 		B720C2E01F2BB72B47F7CA5E /* Frameworks */ = {
@@ -696,11 +735,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6A916AA2C22E818007071FF /* StockSearchLocalRepository.swift in Sources */,
 				B61366CB2C217810006BD2C5 /* WatchedStockItemView.swift in Sources */,
 				B6A916882C22CD0A007071FF /* StockSearchDataSource.swift in Sources */,
 				B6A916972C22E1BA007071FF /* DomainError.swift in Sources */,
 				B6A9169E2C22E34D007071FF /* StockSearchFinanceApiDataSource.swift in Sources */,
 				B61366D82C21B5CE006BD2C5 /* StockSearchView.swift in Sources */,
+				B6A916A62C22E77F007071FF /* DataSourceProtocol.swift in Sources */,
 				B61366DA2C21B703006BD2C5 /* StockSearchViewModel.swift in Sources */,
 				B6A916912C22D47F007071FF /* QuoteApiMapper.swift in Sources */,
 				B61366BB2C1AC3C0006BD2C5 /* RootTabBarController.swift in Sources */,
@@ -709,14 +750,17 @@
 				B6A9168B2C22CD27007071FF /* StockSearchApiResponse.swift in Sources */,
 				B6A9169C2C22E2D2007071FF /* StockSearchRemoteRepository.swift in Sources */,
 				B6A916822C22CB40007071FF /* ApiDefinition.swift in Sources */,
+				B6A916AD2C22F188007071FF /* StockSearchItemViewModelMapper.swift in Sources */,
 				B6A9167B2C22CAE0007071FF /* HTTPRequest.swift in Sources */,
 				B61366DC2C21B777006BD2C5 /* StockSearchItemState.swift in Sources */,
 				B6A916A02C22E38B007071FF /* GetQuoteUseCase.swift in Sources */,
 				B61366D22C219B45006BD2C5 /* AnimatingCellHeight.swift in Sources */,
 				B6A916842C22CBB4007071FF /* FinanceApi.swift in Sources */,
+				B6A916A42C22E748007071FF /* InMemoryDataSource.swift in Sources */,
 				B699C5412C1848A600C10AA0 /* AppDelegate.swift in Sources */,
 				B61366CD2C21783A006BD2C5 /* StocksListViewModel.swift in Sources */,
 				B6A916952C22D670007071FF /* Mappable.swift in Sources */,
+				B6A916A82C22E79B007071FF /* Array+ReplaceOcurrences.swift in Sources */,
 				B6A9167F2C22CB09007071FF /* HTTPCode.swift in Sources */,
 				B61366C92C217804006BD2C5 /* OwnedStockItemView.swift in Sources */,
 				B61366C62C1ADA9C006BD2C5 /* StocksListView.swift in Sources */,
