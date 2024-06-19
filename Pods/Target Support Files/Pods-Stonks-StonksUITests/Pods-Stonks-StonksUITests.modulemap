@@ -1,0 +1,6 @@
+framework module Pods_Stonks_StonksUITests {
+  umbrella header "Pods-Stonks-StonksUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
