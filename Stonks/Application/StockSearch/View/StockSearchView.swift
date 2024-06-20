@@ -28,7 +28,6 @@ struct StockSearchView<ViewModel: StockSearchViewModelProtocol>: View {
             
         }
         .searchable(text: $viewModel.searchText, prompt: "Ticker, name or ISIN")
-        .onAppear(perform: viewModel.onAppear)
         .onSubmit(of: .search, viewModel.onSubmit)
 
     }

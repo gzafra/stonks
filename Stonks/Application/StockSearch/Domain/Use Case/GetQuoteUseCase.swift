@@ -19,11 +19,12 @@ struct GetQuoteUseCase: GetQuoteUseCaseProtocol {
     func getQuote(ticker: String) -> AnyPublisher<[Quote], Never> {
         localRepository.getQuotes(ticker: ticker)
             .flatMap { quotes -> AnyPublisher<[Quote], Never> in
-                guard quotes.count > 0 else {
+                guard quotes.count > 0 else { // TODO: Logic to get from cache if calls are too fast
                     return remoteRepository.getQuotes(ticker: ticker).catch { error in
                         // TODO: Handle error
                         return Just([])
                     }.eraseToAnyPublisher()
+                 // TODO: Store in memory
                 }
                 return Just(quotes).eraseToAnyPublisher()
             }.eraseToAnyPublisher()

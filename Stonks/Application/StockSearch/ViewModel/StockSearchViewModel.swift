@@ -12,13 +12,13 @@ protocol StockSearchViewModelProtocol: ObservableObject {
     var searchText: String { get set }
     var searchResults: [StockSearchItemState] { get }
     var status: ScreenStatus { get }
-    func onAppear()
     func onSubmit()
 }
 
 final class StockSearchViewModel: StockSearchViewModelProtocol {
     // MARK: - Public
-    var searchText: String = ""
+    @Published var searchText: String = ""
+    @Published var debouncedText = ""
     @Published var searchResults: [StockSearchItemState] = StockSearchItemState.mockItems()
     let getQuotesUseCase: GetQuoteUseCaseProtocol
     @Published var status: ScreenStatus = .loaded
@@ -34,20 +34,24 @@ final class StockSearchViewModel: StockSearchViewModelProtocol {
         self.searchText = searchText
         self.searchResults = searchResults
         self.getQuotesUseCase = getQuotesUseCase
-    }
-    
-    func onAppear() {
-        print("On Appear")
+        $searchText
+            .dropFirst()
+            .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] t in
+                self?.debouncedText = t
+                self?.onSubmit()
+            } )
+            .store(in: &subscriptions)
     }
     
     func onSubmit() {
         status = .loading
-        getQuotesUseCase.getQuote(ticker: self.searchText)
+        getQuotesUseCase.getQuote(ticker: self.debouncedText)
             .map({ quotes -> [StockSearchItemState] in
                 self.searchItemStateMapper.mapObjects(from: quotes)
             }).sink { items in
-                self.status = .loaded
                 self.searchResults = items
+                self.status = items.isEmpty ? .empty : .loaded
             }.store(in: &subscriptions)
     }
 }
