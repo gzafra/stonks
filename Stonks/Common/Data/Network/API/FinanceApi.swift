@@ -14,11 +14,11 @@ struct FinanceApi: ApiDefinitionProtocol {
         var path: String {
             switch self {
             case .quote:
-                return "/quote"
+                return "/v6/finance/quote"
             }
         }
     }
 
     var endpoint: EndpointProtocol
-    var baseURL: String = "https://yfapi.net/v6/finance"
+    var baseURL: String = "https://yfapi.net"
 }

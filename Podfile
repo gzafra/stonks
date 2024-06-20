@@ -6,7 +6,7 @@ target 'Stonks' do
   use_frameworks!
 
   # Pods for Stonks
-  pod 'Alamofire', '~> 5.2'
+  pod 'Alamofire'
 
   target 'StonksTests' do
     inherit! :search_paths

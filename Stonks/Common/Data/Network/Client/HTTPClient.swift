@@ -76,16 +76,19 @@ class DefaultHTTPClient: HTTPClient {
         }
 
         AF.request(urlRequest).responseDecodable(of: type) { response in
-            if let _ = response.data {
-                guard let decodedResponse = response.value else {
-                    completion(.failure(.decodingFailed))
-                    return
+            DispatchQueue.main.async {
+                if let _ = response.data {
+                    print("RESPONSE: \(String(describing: String(data: response.data!, encoding: .utf8)))")
+                    guard let decodedResponse = response.value else {
+                        completion(.failure(.decodingFailed))
+                        return
+                    }
+                    completion(.success(decodedResponse))
+                } else if let httpUrlResponse = response.response, (200...299) ~= httpUrlResponse.statusCode {
+                    completion(.failure(HTTPClientError.noData))
+                } else {
+                    completion(.failure(self.map(error: response.error)))
                 }
-                completion(.success(decodedResponse))
-            } else if let httpUrlResponse = response.response, (200...299) ~= httpUrlResponse.statusCode {
-                completion(.failure(HTTPClientError.noData))
-            } else {
-                completion(.failure(self.map(error: response.error)))
             }
         }
     }

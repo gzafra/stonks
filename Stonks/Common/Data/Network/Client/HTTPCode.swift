@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum HTTPCode {
-    case informational(code: Int)
+struct HTTPCode {
+    var code: Int
 
     /// Informational - Request received, continuing process.
     public var isInformational: Bool {
@@ -35,6 +35,6 @@ enum HTTPCode {
 
 fileprivate extension HTTPCode {
     private func isIn(range: ClosedRange<Int>) -> Bool {
-        return range.contains(intValue)
+        return range.contains(code)
     }
 }

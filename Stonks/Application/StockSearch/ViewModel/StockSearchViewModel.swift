@@ -11,16 +11,23 @@ import Combine
 protocol StockSearchViewModelProtocol: ObservableObject {
     var searchText: String { get set }
     var searchResults: [StockSearchItemState] { get }
+    var status: ScreenStatus { get }
     func onAppear()
     func onSubmit()
 }
 
 final class StockSearchViewModel: StockSearchViewModelProtocol {
+    // MARK: - Public
     var searchText: String = ""
-    var searchResults: [StockSearchItemState] = StockSearchItemState.mockItems()
+    @Published var searchResults: [StockSearchItemState] = StockSearchItemState.mockItems()
     let getQuotesUseCase: GetQuoteUseCaseProtocol
+    @Published var status: ScreenStatus = .loaded
+    let searchItemStateMapper = StockSearchItemViewModelMapper()
+    
+    // MARK: - Private
     private var subscriptions: Set<AnyCancellable> = []
     
+    // MARK: - Lifecycle
     internal init(searchText: String = "",
                   searchResults: [StockSearchItemState] = StockSearchItemState.mockItems(),
                   getQuotesUseCase: any GetQuoteUseCaseProtocol) {
@@ -34,11 +41,13 @@ final class StockSearchViewModel: StockSearchViewModelProtocol {
     }
     
     func onSubmit() {
+        status = .loading
         getQuotesUseCase.getQuote(ticker: self.searchText)
             .map({ quotes -> [StockSearchItemState] in
-            return []
-        }).sink { items in
-            self.searchResults = items
-        }.store(in: &subscriptions)
+                self.searchItemStateMapper.mapObjects(from: quotes)
+            }).sink { items in
+                self.status = .loaded
+                self.searchResults = items
+            }.store(in: &subscriptions)
     }
 }

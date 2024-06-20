@@ -12,16 +12,24 @@ struct StockSearchView<ViewModel: StockSearchViewModelProtocol>: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(viewModel.searchResults, id: \.id) { stock in
-                    cell(text: stock.ticker)
+            switch viewModel.status {
+            case .loading:
+                ProgressView()
+            case .loaded:
+                List {
+                    ForEach(viewModel.searchResults, id: \.id) { stock in
+                        cell(text: stock.ticker)
+                    }
                 }
+                .navigationTitle("Stocks")
+            case .empty:
+                Text("No results")
             }
-            .navigationTitle("Stocks")
+            
         }
         .searchable(text: $viewModel.searchText, prompt: "Ticker, name or ISIN")
         .onAppear(perform: viewModel.onAppear)
-        .onSubmit(of: .search, viewModel.onAppear)
+        .onSubmit(of: .search, viewModel.onSubmit)
 
     }
     
@@ -31,5 +39,8 @@ struct StockSearchView<ViewModel: StockSearchViewModelProtocol>: View {
 }
 
 #Preview {
-    StockSearchView(viewModel: StockSearchViewModel())
+    StockSearchView(
+        viewModel: StockSearchFactory().makeStocksSearchViewModel()
+    )
 }
+
