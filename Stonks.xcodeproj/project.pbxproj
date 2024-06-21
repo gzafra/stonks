@@ -54,6 +54,8 @@
 		B6A916B62C240A59007071FF /* UnsafeMutableTransferBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A916B52C240A59007071FF /* UnsafeMutableTransferBox.swift */; };
 		B6E18AE72C240E66004960AD /* ScreenStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AE62C240E66004960AD /* ScreenStatus.swift */; };
 		B6E18AE92C25768D004960AD /* CachedQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AE82C25768D004960AD /* CachedQuotes.swift */; };
+		B6E18AEB2C258D60004960AD /* StocksListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AEA2C258D60004960AD /* StocksListRouter.swift */; };
+		B6E18AED2C25908D004960AD /* MainFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AEC2C25908D004960AD /* MainFactory.swift */; };
 		B8F4C26C595682E1AEE7D317 /* Pods_Stonks_StonksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C273BD89B95C47E3E84E3DFC /* Pods_Stonks_StonksUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +134,8 @@
 		B6A916B52C240A59007071FF /* UnsafeMutableTransferBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeMutableTransferBox.swift; sourceTree = "<group>"; };
 		B6E18AE62C240E66004960AD /* ScreenStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStatus.swift; sourceTree = "<group>"; };
 		B6E18AE82C25768D004960AD /* CachedQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedQuotes.swift; sourceTree = "<group>"; };
+		B6E18AEA2C258D60004960AD /* StocksListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksListRouter.swift; sourceTree = "<group>"; };
+		B6E18AEC2C25908D004960AD /* MainFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFactory.swift; sourceTree = "<group>"; };
 		C273BD89B95C47E3E84E3DFC /* Pods_Stonks_StonksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stonks_StonksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -191,6 +195,7 @@
 				B61366C22C1AD238006BD2C5 /* ViewModel */,
 				B61366C12C1AD22C006BD2C5 /* View */,
 				B61366BF2C1AD1D9006BD2C5 /* StocksListFactory.swift */,
+				B6E18AEA2C258D60004960AD /* StocksListRouter.swift */,
 			);
 			path = StocksList;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				B61366D02C219B36006BD2C5 /* ViewModifiers */,
 				B699C5422C1848A600C10AA0 /* SceneDelegate.swift */,
 				B699C5402C1848A600C10AA0 /* AppDelegate.swift */,
+				B6E18AEC2C25908D004960AD /* MainFactory.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -777,11 +783,13 @@
 				B61366D82C21B5CE006BD2C5 /* StockSearchView.swift in Sources */,
 				B6A916A62C22E77F007071FF /* DataSourceProtocol.swift in Sources */,
 				B61366DA2C21B703006BD2C5 /* StockSearchViewModel.swift in Sources */,
+				B6E18AED2C25908D004960AD /* MainFactory.swift in Sources */,
 				B6A916912C22D47F007071FF /* QuoteApiMapper.swift in Sources */,
 				B61366BB2C1AC3C0006BD2C5 /* RootTabBarController.swift in Sources */,
 				B6A916AF2C2406C2007071FF /* StockSearchFactory.swift in Sources */,
 				B6A916B62C240A59007071FF /* UnsafeMutableTransferBox.swift in Sources */,
 				B6E18AE72C240E66004960AD /* ScreenStatus.swift in Sources */,
+				B6E18AEB2C258D60004960AD /* StocksListRouter.swift in Sources */,
 				B61366C02C1AD1D9006BD2C5 /* StocksListFactory.swift in Sources */,
 				B6A9168E2C22D1C3007071FF /* Quote.swift in Sources */,
 				B6A9168B2C22CD27007071FF /* StockSearchApiResponse.swift in Sources */,

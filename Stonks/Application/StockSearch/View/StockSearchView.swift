@@ -18,7 +18,7 @@ struct StockSearchView<ViewModel: StockSearchViewModelProtocol>: View {
             case .loaded:
                 List {
                     ForEach(viewModel.searchResults, id: \.id) { stock in
-                        cell(text: stock.ticker)
+                        cell(ticker: stock.ticker)
                     }
                 }
                 .navigationTitle("Stocks")
@@ -32,14 +32,18 @@ struct StockSearchView<ViewModel: StockSearchViewModelProtocol>: View {
 
     }
     
-    func cell(text: String) -> some View {
-        Text(text)
+    func cell(ticker: String) -> some View {
+        Button(action: {
+            self.viewModel.onStockTapped(ticker: ticker)
+        }) {
+            Text(ticker)
+        }
     }
 }
 
 #Preview {
     StockSearchView(
-        viewModel: StockSearchFactory().makeStocksSearchViewModel()
+        viewModel: StockSearchFactory().makeStocksSearchViewModel(onStockSelected: nil)
     )
 }
 

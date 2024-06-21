@@ -17,12 +17,19 @@ struct StockSearchLocalRepository: StockSearchLocalRepositoryProtocol {
     let inMemoryDataSource: DataSourceProtocol
 
     func getQuotes(ticker: String) -> AnyPublisher<CachedQuotes?, Never> {
-        inMemoryDataSource.getSingleElementObervable(of: CachedQuotes.self, with: ticker)
+        self.inMemoryDataSource.getSingleElementObervable(of: CachedQuotes.self, with: ticker)
     }
     
     func saveQuotes(quotes: CachedQuotes) {
+        // Cache search (Defensive to prevent reaching rate limit)
         Task {
-            await inMemoryDataSource.add(element: quotes)
+            await self.inMemoryDataSource.add(element: quotes)
+        }
+        // Store each quote individually 
+        quotes.quotesResult.forEach { quote in
+            Task {
+                await self.inMemoryDataSource.add(element: quote)
+            }
         }
     }
 }

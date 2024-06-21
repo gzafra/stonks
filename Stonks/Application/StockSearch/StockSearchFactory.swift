@@ -9,16 +9,19 @@ import UIKit
 import SwiftUI
 
 public protocol StockSearchFactoryProtocol {
-    func makeStocksSearchController() -> UIViewController
+    func makeStocksSearchController(onStockSelected: StockSelectedCompletion?) -> UIViewController
 }
 
 public final class StockSearchFactory: StockSearchFactoryProtocol {
-    public func makeStocksSearchController() -> UIViewController {
-        return UIHostingController(rootView: StockSearchView(viewModel: makeStocksSearchViewModel()))
+    public func makeStocksSearchController(onStockSelected: StockSelectedCompletion?) -> UIViewController {
+        let viewModel = makeStocksSearchViewModel(onStockSelected: onStockSelected)
+        let view = StockSearchView(viewModel: viewModel)
+        return UIHostingController(rootView: view)
     }
     
-    func makeStocksSearchViewModel() -> some StockSearchViewModelProtocol {
-        StockSearchViewModel(getQuotesUseCase: makeGetQuoteUseCase())
+    func makeStocksSearchViewModel(onStockSelected: StockSelectedCompletion?) -> some StockSearchViewModelProtocol {
+        StockSearchViewModel(getQuotesUseCase: makeGetQuoteUseCase(),
+                             onStockSelected: onStockSelected)
     }
     
     func makeGetQuoteUseCase() -> GetQuoteUseCaseProtocol {

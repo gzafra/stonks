@@ -13,29 +13,42 @@ protocol StockSearchViewModelProtocol: ObservableObject {
     var searchResults: [StockSearchItemState] { get }
     var status: ScreenStatus { get }
     func onSubmit()
+    func onStockTapped(ticker: String)
 }
+
+public typealias StockSelectedCompletion = (String)->Void
 
 final class StockSearchViewModel: StockSearchViewModelProtocol {
     // MARK: - Public
     @Published var searchText: String = ""
     @Published var debouncedText = ""
     @Published var searchResults: [StockSearchItemState] = StockSearchItemState.mockItems()
-    let getQuotesUseCase: GetQuoteUseCaseProtocol
     @Published var status: ScreenStatus = .loaded
-    let searchItemStateMapper = StockSearchItemViewModelMapper()
-    var isInitialState = true
     
     // MARK: - Private
     private var subscriptions: Set<AnyCancellable> = []
+    private var isInitialState = true
+    private let searchItemStateMapper = StockSearchItemViewModelMapper()
+    private let getQuotesUseCase: GetQuoteUseCaseProtocol
+    private var onStockSelected: StockSelectedCompletion?
     
     // MARK: - Lifecycle
-    internal init(searchText: String = "",
-                  searchResults: [StockSearchItemState] = StockSearchItemState.mockItems(),
-                  getQuotesUseCase: any GetQuoteUseCaseProtocol) {
+    internal init(
+        searchText: String = "",
+        searchResults: [StockSearchItemState] = StockSearchItemState.mockItems(),
+        getQuotesUseCase: any GetQuoteUseCaseProtocol,
+        onStockSelected: StockSelectedCompletion?
+    ) {
         self.searchText = searchText
         self.searchResults = searchResults
         self.getQuotesUseCase = getQuotesUseCase
+        self.onStockSelected = onStockSelected
+        self.setup()
+    }
+    
+    private func setup() {
         $searchText
+            .receive(on: DispatchQueue.main)
             .dropFirst()
             .filter({ !($0.isEmpty && self.isInitialState) })
             .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
@@ -46,6 +59,7 @@ final class StockSearchViewModel: StockSearchViewModelProtocol {
             .store(in: &subscriptions)
     }
     
+    // MARK: - StockSearchViewModelProtocol
     func onSubmit() {
         isInitialState = false
         status = .loading
@@ -56,5 +70,9 @@ final class StockSearchViewModel: StockSearchViewModelProtocol {
                 self.searchResults = items
                 self.status = items.isEmpty ? .empty : .loaded
             }.store(in: &subscriptions)
+    }
+    
+    func onStockTapped(ticker: String) {
+        self.onStockSelected?(ticker)
     }
 }

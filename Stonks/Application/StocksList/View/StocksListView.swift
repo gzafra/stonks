@@ -34,7 +34,7 @@ struct StocksListView: View {
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
             Spacer()
             Button {
-                
+                self.viewModel.onAddHoldingTap()
             } label: {
                 Image(systemName: "plus.circle")
             }
@@ -56,7 +56,7 @@ struct StocksListView: View {
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
             Spacer()
             Button {
-                
+                self.viewModel.onAddFavouriteTap()
             } label: {
                 Image(systemName: "plus.circle")
             }
@@ -67,6 +67,11 @@ struct StocksListView: View {
 #Preview {
     StocksListView(viewModel: StocksListViewModel(
         holdings: StockItemState.mockItems(),
-        watchList: StockItemState.mockItems()
+        watchList: StockItemState.mockItems(), 
+        router: StocksListRouterMock()
     ))
+}
+
+private class StocksListRouterMock: StocksListRouterProtocol {
+    func navigateToSearch(onStockSelected: @escaping StockSelectedCompletion) {}  
 }
