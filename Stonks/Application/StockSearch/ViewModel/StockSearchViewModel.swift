@@ -23,6 +23,7 @@ final class StockSearchViewModel: StockSearchViewModelProtocol {
     let getQuotesUseCase: GetQuoteUseCaseProtocol
     @Published var status: ScreenStatus = .loaded
     let searchItemStateMapper = StockSearchItemViewModelMapper()
+    var isInitialState = true
     
     // MARK: - Private
     private var subscriptions: Set<AnyCancellable> = []
@@ -36,6 +37,7 @@ final class StockSearchViewModel: StockSearchViewModelProtocol {
         self.getQuotesUseCase = getQuotesUseCase
         $searchText
             .dropFirst()
+            .filter({ !($0.isEmpty && self.isInitialState) })
             .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
             .sink(receiveValue: { [weak self] t in
                 self?.debouncedText = t
@@ -45,6 +47,7 @@ final class StockSearchViewModel: StockSearchViewModelProtocol {
     }
     
     func onSubmit() {
+        isInitialState = false
         status = .loading
         getQuotesUseCase.getQuote(ticker: self.debouncedText)
             .map({ quotes -> [StockSearchItemState] in

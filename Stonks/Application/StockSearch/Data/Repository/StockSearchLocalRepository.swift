@@ -9,16 +9,20 @@ import Foundation
 import Combine
 
 protocol StockSearchLocalRepositoryProtocol {
-    func getQuotes(ticker: String) -> AnyPublisher<[Quote], Never>
+    func getQuotes(ticker: String) -> AnyPublisher<CachedQuotes?, Never>
+    func saveQuotes(quotes: CachedQuotes)
 }
 
 struct StockSearchLocalRepository: StockSearchLocalRepositoryProtocol {
     let inMemoryDataSource: DataSourceProtocol
 
-    func getQuotes(ticker: String) -> AnyPublisher<[Quote], Never> {
-        inMemoryDataSource.getAllElementsObservable(of: Quote.self)
-            .map { quotes -> [Quote] in
-                quotes.filter { $0.symbol.contains(ticker) }
-        }.eraseToAnyPublisher()
+    func getQuotes(ticker: String) -> AnyPublisher<CachedQuotes?, Never> {
+        inMemoryDataSource.getSingleElementObervable(of: CachedQuotes.self, with: ticker)
+    }
+    
+    func saveQuotes(quotes: CachedQuotes) {
+        Task {
+            await inMemoryDataSource.add(element: quotes)
+        }
     }
 }

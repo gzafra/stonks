@@ -53,6 +53,7 @@
 		B6A916B42C240A42007071FF /* Randomisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A916B32C240A42007071FF /* Randomisation.swift */; };
 		B6A916B62C240A59007071FF /* UnsafeMutableTransferBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A916B52C240A59007071FF /* UnsafeMutableTransferBox.swift */; };
 		B6E18AE72C240E66004960AD /* ScreenStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AE62C240E66004960AD /* ScreenStatus.swift */; };
+		B6E18AE92C25768D004960AD /* CachedQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AE82C25768D004960AD /* CachedQuotes.swift */; };
 		B8F4C26C595682E1AEE7D317 /* Pods_Stonks_StonksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C273BD89B95C47E3E84E3DFC /* Pods_Stonks_StonksUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,7 @@
 		B6A916B32C240A42007071FF /* Randomisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Randomisation.swift; sourceTree = "<group>"; };
 		B6A916B52C240A59007071FF /* UnsafeMutableTransferBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeMutableTransferBox.swift; sourceTree = "<group>"; };
 		B6E18AE62C240E66004960AD /* ScreenStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStatus.swift; sourceTree = "<group>"; };
+		B6E18AE82C25768D004960AD /* CachedQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedQuotes.swift; sourceTree = "<group>"; };
 		C273BD89B95C47E3E84E3DFC /* Pods_Stonks_StonksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stonks_StonksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -417,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				B6A9168D2C22D1C3007071FF /* Quote.swift */,
+				B6E18AE82C25768D004960AD /* CachedQuotes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -804,6 +807,7 @@
 				B6A916792C22CA8F007071FF /* HTTPClient.swift in Sources */,
 				B61366BD2C1AD00B006BD2C5 /* RootTabBarFactory.swift in Sources */,
 				B699C5432C1848A600C10AA0 /* SceneDelegate.swift in Sources */,
+				B6E18AE92C25768D004960AD /* CachedQuotes.swift in Sources */,
 				B61366CF2C217AC6006BD2C5 /* StockItemState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
