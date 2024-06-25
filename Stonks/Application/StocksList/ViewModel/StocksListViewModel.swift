@@ -30,13 +30,13 @@ final class StocksListViewModel: StocksListViewModelProtocol {
     }
     
     func onAddHoldingTap() {
-        self.router.navigateToSearch { tickerSelected in
+        self.router.navigateToSearch(mode: .addHolding) { tickerSelected in
             // TODO:
         }
     }
     
     func onAddFavouriteTap() {
-        self.router.navigateToSearch { tickerSelected in
+        self.router.navigateToSearch(mode: .addFavourite) { tickerSelected in
             // TODO: Get most recent quote from cache and update watchList
         }
     }

@@ -7,14 +7,15 @@
 
 import UIKit
 
-public protocol StocksListRouterProtocol {
-    func navigateToSearch(onStockSelected: @escaping StockSelectedCompletion)
+protocol StocksListRouterProtocol: RouterProtocol {
+    func navigateToSearch(mode: SearchMode,
+                          onStockSelected: @escaping StockSelectedCompletion)
 }
 
 public final class StocksListRouter: StocksListRouterProtocol {
     
     private let stockSearchFactory: StockSearchFactoryProtocol
-    private var presentingViewControllerProvider: PresentingProvider
+    var presentingViewControllerProvider: PresentingProvider
     
     internal init(stockSearchFactory: any StockSearchFactoryProtocol,
                   presentingViewControllerProvider: @escaping PresentingProvider) {
@@ -22,9 +23,13 @@ public final class StocksListRouter: StocksListRouterProtocol {
         self.presentingViewControllerProvider = presentingViewControllerProvider
     }
     
-    public func navigateToSearch(onStockSelected: @escaping StockSelectedCompletion) {
-        let searchViewController = stockSearchFactory.makeStocksSearchController(onStockSelected: onStockSelected)
-        let presentingViewController = self.presentingViewControllerProvider()
-        presentingViewController.present(searchViewController, animated: true)
+    func navigateToSearch(mode: SearchMode,
+                          onStockSelected: @escaping StockSelectedCompletion) {
+        let searchViewController = stockSearchFactory.makeStocksSearchController(
+            mode: mode,
+            onStockSelected: onStockSelected
+        )
+        guard let presentingViewController = self.presentingViewControllerProvider() as? UINavigationController else { return }
+        presentingViewController.pushViewController(searchViewController, animated: true)
     }
 }

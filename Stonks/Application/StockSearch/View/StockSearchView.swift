@@ -43,7 +43,14 @@ struct StockSearchView<ViewModel: StockSearchViewModelProtocol>: View {
 
 #Preview {
     StockSearchView(
-        viewModel: StockSearchFactory().makeStocksSearchViewModel(onStockSelected: nil)
+        viewModel: StubStockSearchViewModel()
     )
 }
 
+private class StubStockSearchViewModel: StockSearchViewModelProtocol {
+    var searchText: String = ""
+    var searchResults = [StockSearchItemState]()
+    var status: ScreenStatus = .loaded
+    func onSubmit() {}
+    func onStockTapped(ticker: String) {}
+}

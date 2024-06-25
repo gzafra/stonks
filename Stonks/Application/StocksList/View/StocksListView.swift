@@ -65,13 +65,12 @@ struct StocksListView: View {
 }
 
 #Preview {
-    StocksListView(viewModel: StocksListViewModel(
-        holdings: StockItemState.mockItems(),
-        watchList: StockItemState.mockItems(), 
-        router: StocksListRouterMock()
-    ))
+    StocksListView(viewModel: StubStocksListViewModel())
 }
 
-private class StocksListRouterMock: StocksListRouterProtocol {
-    func navigateToSearch(onStockSelected: @escaping StockSelectedCompletion) {}  
+private class StubStocksListViewModel: StocksListViewModelProtocol {
+    var holdings: [StockItemState] = StockItemState.mockItems()
+    var watchList: [StockItemState] = StockItemState.mockItems()
+    func onAddHoldingTap() {}
+    func onAddFavouriteTap() {}
 }

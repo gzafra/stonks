@@ -19,6 +19,7 @@ protocol StockSearchViewModelProtocol: ObservableObject {
 public typealias StockSelectedCompletion = (String)->Void
 
 final class StockSearchViewModel: StockSearchViewModelProtocol {
+
     // MARK: - Public
     @Published var searchText: String = ""
     @Published var debouncedText = ""
@@ -31,16 +32,18 @@ final class StockSearchViewModel: StockSearchViewModelProtocol {
     private let searchItemStateMapper = StockSearchItemViewModelMapper()
     private let getQuotesUseCase: GetQuoteUseCaseProtocol
     private var onStockSelected: StockSelectedCompletion?
+    private var mode: SearchMode
+    private let router: StockSearchRouterProtocol
     
     // MARK: - Lifecycle
     internal init(
-        searchText: String = "",
-        searchResults: [StockSearchItemState] = StockSearchItemState.mockItems(),
+        mode: SearchMode,
+        router: StockSearchRouterProtocol,
         getQuotesUseCase: any GetQuoteUseCaseProtocol,
         onStockSelected: StockSelectedCompletion?
     ) {
-        self.searchText = searchText
-        self.searchResults = searchResults
+        self.mode = mode
+        self.router = router
         self.getQuotesUseCase = getQuotesUseCase
         self.onStockSelected = onStockSelected
         self.setup()
@@ -74,5 +77,11 @@ final class StockSearchViewModel: StockSearchViewModelProtocol {
     
     func onStockTapped(ticker: String) {
         self.onStockSelected?(ticker)
+        switch mode {
+        case .addFavourite:
+            self.router.dismiss()
+        case .addHolding:
+            self.router.navigateToAddHolding(with: ticker)
+        }
     }
 }

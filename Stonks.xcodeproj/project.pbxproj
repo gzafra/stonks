@@ -56,6 +56,14 @@
 		B6E18AE92C25768D004960AD /* CachedQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AE82C25768D004960AD /* CachedQuotes.swift */; };
 		B6E18AEB2C258D60004960AD /* StocksListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AEA2C258D60004960AD /* StocksListRouter.swift */; };
 		B6E18AED2C25908D004960AD /* MainFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AEC2C25908D004960AD /* MainFactory.swift */; };
+		B6E18AF12C25B539004960AD /* AddStockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AF02C25B539004960AD /* AddStockFactory.swift */; };
+		B6E18AF32C25B54F004960AD /* StockSearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AF22C25B54F004960AD /* StockSearchRouter.swift */; };
+		B6E18AF52C25BA6B004960AD /* AddStockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AF42C25BA6B004960AD /* AddStockRouter.swift */; };
+		B6E18AF72C25BA9A004960AD /* AddStockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AF62C25BA9A004960AD /* AddStockView.swift */; };
+		B6E18AF92C2AD0CE004960AD /* AddStockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AF82C2AD0CE004960AD /* AddStockViewModel.swift */; };
+		B6E18AFC2C2AD720004960AD /* StockTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AFB2C2AD720004960AD /* StockTransaction.swift */; };
+		B6E18B012C2AD77A004960AD /* StockTransactionsLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18B002C2AD77A004960AD /* StockTransactionsLocalRepository.swift */; };
+		B6E18B042C2AF31B004960AD /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18B032C2AF31B004960AD /* RouterProtocol.swift */; };
 		B8F4C26C595682E1AEE7D317 /* Pods_Stonks_StonksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C273BD89B95C47E3E84E3DFC /* Pods_Stonks_StonksUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +144,14 @@
 		B6E18AE82C25768D004960AD /* CachedQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedQuotes.swift; sourceTree = "<group>"; };
 		B6E18AEA2C258D60004960AD /* StocksListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksListRouter.swift; sourceTree = "<group>"; };
 		B6E18AEC2C25908D004960AD /* MainFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFactory.swift; sourceTree = "<group>"; };
+		B6E18AF02C25B539004960AD /* AddStockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockFactory.swift; sourceTree = "<group>"; };
+		B6E18AF22C25B54F004960AD /* StockSearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchRouter.swift; sourceTree = "<group>"; };
+		B6E18AF42C25BA6B004960AD /* AddStockRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockRouter.swift; sourceTree = "<group>"; };
+		B6E18AF62C25BA9A004960AD /* AddStockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockView.swift; sourceTree = "<group>"; };
+		B6E18AF82C2AD0CE004960AD /* AddStockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStockViewModel.swift; sourceTree = "<group>"; };
+		B6E18AFB2C2AD720004960AD /* StockTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTransaction.swift; sourceTree = "<group>"; };
+		B6E18B002C2AD77A004960AD /* StockTransactionsLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTransactionsLocalRepository.swift; sourceTree = "<group>"; };
+		B6E18B032C2AF31B004960AD /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		C273BD89B95C47E3E84E3DFC /* Pods_Stonks_StonksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stonks_StonksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -251,6 +267,7 @@
 				B61366D62C21B5BB006BD2C5 /* ViewModel */,
 				B61366D52C21B5B5006BD2C5 /* View */,
 				B6A916AE2C2406C2007071FF /* StockSearchFactory.swift */,
+				B6E18AF22C25B54F004960AD /* StockSearchRouter.swift */,
 			);
 			path = StockSearch;
 			sourceTree = "<group>";
@@ -258,6 +275,12 @@
 		B61366D42C21B55C006BD2C5 /* AddStock */ = {
 			isa = PBXGroup;
 			children = (
+				B6E18AFE2C2AD753004960AD /* Data */,
+				B6E18AFA2C2AD6E8004960AD /* Domain */,
+				B6E18AEF2C25B52A004960AD /* View */,
+				B6E18AEE2C25B521004960AD /* ViewModel */,
+				B6E18AF02C25B539004960AD /* AddStockFactory.swift */,
+				B6E18AF42C25BA6B004960AD /* AddStockRouter.swift */,
 			);
 			path = AddStock;
 			sourceTree = "<group>";
@@ -333,6 +356,7 @@
 		B699C5702C18492800C10AA0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B6E18B022C2AF30B004960AD /* RouterProtocol */,
 				B6E18AE52C240E5C004960AD /* View */,
 				B6A916A12C22E71C007071FF /* Data */,
 				B6A916922C22D65C007071FF /* Domain */,
@@ -525,6 +549,62 @@
 				B6E18AE62C240E66004960AD /* ScreenStatus.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B6E18AEE2C25B521004960AD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6E18AF82C2AD0CE004960AD /* AddStockViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B6E18AEF2C25B52A004960AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6E18AF62C25BA9A004960AD /* AddStockView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B6E18AFA2C2AD6E8004960AD /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B6E18AFD2C2AD74B004960AD /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B6E18AFD2C2AD74B004960AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6E18AFB2C2AD720004960AD /* StockTransaction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B6E18AFE2C2AD753004960AD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B6E18AFF2C2AD76A004960AD /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B6E18AFF2C2AD76A004960AD /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B6E18B002C2AD77A004960AD /* StockTransactionsLocalRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B6E18B022C2AF30B004960AD /* RouterProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				B6E18B032C2AF31B004960AD /* RouterProtocol.swift */,
+			);
+			path = RouterProtocol;
 			sourceTree = "<group>";
 		};
 		B720C2E01F2BB72B47F7CA5E /* Frameworks */ = {
@@ -779,13 +859,16 @@
 				B61366CB2C217810006BD2C5 /* WatchedStockItemView.swift in Sources */,
 				B6A916882C22CD0A007071FF /* StockSearchDataSource.swift in Sources */,
 				B6A916972C22E1BA007071FF /* DomainError.swift in Sources */,
+				B6E18AF92C2AD0CE004960AD /* AddStockViewModel.swift in Sources */,
 				B6A9169E2C22E34D007071FF /* StockSearchFinanceApiDataSource.swift in Sources */,
 				B61366D82C21B5CE006BD2C5 /* StockSearchView.swift in Sources */,
 				B6A916A62C22E77F007071FF /* DataSourceProtocol.swift in Sources */,
 				B61366DA2C21B703006BD2C5 /* StockSearchViewModel.swift in Sources */,
 				B6E18AED2C25908D004960AD /* MainFactory.swift in Sources */,
 				B6A916912C22D47F007071FF /* QuoteApiMapper.swift in Sources */,
+				B6E18AFC2C2AD720004960AD /* StockTransaction.swift in Sources */,
 				B61366BB2C1AC3C0006BD2C5 /* RootTabBarController.swift in Sources */,
+				B6E18AF72C25BA9A004960AD /* AddStockView.swift in Sources */,
 				B6A916AF2C2406C2007071FF /* StockSearchFactory.swift in Sources */,
 				B6A916B62C240A59007071FF /* UnsafeMutableTransferBox.swift in Sources */,
 				B6E18AE72C240E66004960AD /* ScreenStatus.swift in Sources */,
@@ -799,10 +882,12 @@
 				B6A9167B2C22CAE0007071FF /* HTTPRequest.swift in Sources */,
 				B61366DC2C21B777006BD2C5 /* StockSearchItemState.swift in Sources */,
 				B6A916B22C240A05007071FF /* Array+Extensions.swift in Sources */,
+				B6E18AF52C25BA6B004960AD /* AddStockRouter.swift in Sources */,
 				B6A916A02C22E38B007071FF /* GetQuoteUseCase.swift in Sources */,
 				B61366D22C219B45006BD2C5 /* AnimatingCellHeight.swift in Sources */,
 				B6A916842C22CBB4007071FF /* FinanceApi.swift in Sources */,
 				B6A916A42C22E748007071FF /* InMemoryDataSource.swift in Sources */,
+				B6E18B042C2AF31B004960AD /* RouterProtocol.swift in Sources */,
 				B699C5412C1848A600C10AA0 /* AppDelegate.swift in Sources */,
 				B61366CD2C21783A006BD2C5 /* StocksListViewModel.swift in Sources */,
 				B6A916952C22D670007071FF /* Mappable.swift in Sources */,
@@ -812,11 +897,14 @@
 				B61366C92C217804006BD2C5 /* OwnedStockItemView.swift in Sources */,
 				B61366C62C1ADA9C006BD2C5 /* StocksListView.swift in Sources */,
 				B6A9167D2C22CAF3007071FF /* URLRequestBuilder.swift in Sources */,
+				B6E18AF32C25B54F004960AD /* StockSearchRouter.swift in Sources */,
 				B6A916792C22CA8F007071FF /* HTTPClient.swift in Sources */,
 				B61366BD2C1AD00B006BD2C5 /* RootTabBarFactory.swift in Sources */,
 				B699C5432C1848A600C10AA0 /* SceneDelegate.swift in Sources */,
 				B6E18AE92C25768D004960AD /* CachedQuotes.swift in Sources */,
+				B6E18B012C2AD77A004960AD /* StockTransactionsLocalRepository.swift in Sources */,
 				B61366CF2C217AC6006BD2C5 /* StockItemState.swift in Sources */,
+				B6E18AF12C25B539004960AD /* AddStockFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
