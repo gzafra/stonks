@@ -64,6 +64,8 @@
 		B6E18AFC2C2AD720004960AD /* StockTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18AFB2C2AD720004960AD /* StockTransaction.swift */; };
 		B6E18B012C2AD77A004960AD /* StockTransactionsLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18B002C2AD77A004960AD /* StockTransactionsLocalRepository.swift */; };
 		B6E18B042C2AF31B004960AD /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18B032C2AF31B004960AD /* RouterProtocol.swift */; };
+		B6E18B072C2AF76E004960AD /* AddTransactionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18B062C2AF76E004960AD /* AddTransactionUseCase.swift */; };
+		B6E18B092C2AF897004960AD /* CacheDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18B082C2AF897004960AD /* CacheDataSource.swift */; };
 		B8F4C26C595682E1AEE7D317 /* Pods_Stonks_StonksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C273BD89B95C47E3E84E3DFC /* Pods_Stonks_StonksUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +154,8 @@
 		B6E18AFB2C2AD720004960AD /* StockTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTransaction.swift; sourceTree = "<group>"; };
 		B6E18B002C2AD77A004960AD /* StockTransactionsLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTransactionsLocalRepository.swift; sourceTree = "<group>"; };
 		B6E18B032C2AF31B004960AD /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		B6E18B062C2AF76E004960AD /* AddTransactionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionUseCase.swift; sourceTree = "<group>"; };
+		B6E18B082C2AF897004960AD /* CacheDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataSource.swift; sourceTree = "<group>"; };
 		C273BD89B95C47E3E84E3DFC /* Pods_Stonks_StonksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stonks_StonksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -522,6 +526,7 @@
 			children = (
 				B6A916A32C22E748007071FF /* InMemoryDataSource.swift */,
 				B6A916A52C22E77F007071FF /* DataSourceProtocol.swift */,
+				B6E18B082C2AF897004960AD /* CacheDataSource.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -570,6 +575,7 @@
 		B6E18AFA2C2AD6E8004960AD /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B6E18B052C2AF752004960AD /* Use Case */,
 				B6E18AFD2C2AD74B004960AD /* Model */,
 			);
 			path = Domain;
@@ -605,6 +611,14 @@
 				B6E18B032C2AF31B004960AD /* RouterProtocol.swift */,
 			);
 			path = RouterProtocol;
+			sourceTree = "<group>";
+		};
+		B6E18B052C2AF752004960AD /* Use Case */ = {
+			isa = PBXGroup;
+			children = (
+				B6E18B062C2AF76E004960AD /* AddTransactionUseCase.swift */,
+			);
+			path = "Use Case";
 			sourceTree = "<group>";
 		};
 		B720C2E01F2BB72B47F7CA5E /* Frameworks */ = {
@@ -889,6 +903,7 @@
 				B6A916A42C22E748007071FF /* InMemoryDataSource.swift in Sources */,
 				B6E18B042C2AF31B004960AD /* RouterProtocol.swift in Sources */,
 				B699C5412C1848A600C10AA0 /* AppDelegate.swift in Sources */,
+				B6E18B072C2AF76E004960AD /* AddTransactionUseCase.swift in Sources */,
 				B61366CD2C21783A006BD2C5 /* StocksListViewModel.swift in Sources */,
 				B6A916952C22D670007071FF /* Mappable.swift in Sources */,
 				B6A916A82C22E79B007071FF /* Array+ReplaceOcurrences.swift in Sources */,
@@ -905,6 +920,7 @@
 				B6E18B012C2AD77A004960AD /* StockTransactionsLocalRepository.swift in Sources */,
 				B61366CF2C217AC6006BD2C5 /* StockItemState.swift in Sources */,
 				B6E18AF12C25B539004960AD /* AddStockFactory.swift in Sources */,
+				B6E18B092C2AF897004960AD /* CacheDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
