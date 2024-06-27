@@ -6,88 +6,63 @@
 //
 
 import Foundation
-import Combine
 
-/// Slim in-memory stotage where any Identifiable entity can be added without previous configuration.
-///
-/// - Parameters:
-///   - downstreamScheduler: Publishers' downstream scheduler
-///
-actor InMemoryDataSorce<
-    DownstreamScheduler: Scheduler
->: DataSourceProtocol {
+protocol InMemoryDataSourceProtocol {
+    func getAllElements<Entity: Identifiable>(of type: Entity.Type) -> [Entity]
+    func getSingleElement<Entity: Identifiable>(of type: Entity.Type, with id: Entity.ID) -> Entity?
+    func add<Entity: Identifiable>(element: Entity)
+    func add<Entity: Identifiable>(elements: [Entity])
+    func removeAll<Entity: Identifiable>(of type: Entity.Type)
+    func replaceAll<Entity: Identifiable>(of type: Entity.Type, with elements: [Entity])
+}
 
-    // MARK: Injected
+final class InMemoryDataSource: InMemoryDataSourceProtocol {
 
-    private let downstreamScheduler: DownstreamScheduler
+    private var store = [String: [any Identifiable]]()
 
-    // MARK: State
+    // MARK: Public
 
-    private var store = [String: any Subject]()
-
-    // MARK: Lifecycle
-
-    init(
-        downstreamScheduler: DownstreamScheduler = DispatchQueue.main
-    ) {
-        self.downstreamScheduler = downstreamScheduler
+    func getAllElements<Entity: Identifiable>(of type: Entity.Type) -> [Entity] {
+        getItems(of: Entity.self)
     }
 
-    // MARK: LocalDataSource
-
-    nonisolated public func getAllElementsObservable<Entity: Identifiable>(of type: Entity.Type) -> AnyPublisher<[Entity], Never> {
-        Future() { promise in
-            Task {
-                let subject = await self.getSubject(of: Entity.self)
-                self.downstreamScheduler.schedule {
-                    promise(.success(subject))
-                }
-            }
-        }
-        .receive(on: self.downstreamScheduler)
-        .flatMap { $0 }
-        .eraseToAnyPublisher()
-    }
-
-    nonisolated func getSingleElementObervable<Entity: Identifiable>(of type: Entity.Type, with id: Entity.ID) -> AnyPublisher<Entity?, Never> {
-        self.getAllElementsObservable(of: Entity.self)
-            .map { $0.first { $0.id == id } }
-            .eraseToAnyPublisher()
-    }
-
-    func getAllElements<Entity: Identifiable>(of type: Entity.Type) async -> [Entity] {
-        self.getSubject(of: Entity.self).value
-    }
-
-    func getSingleElement<Entity: Identifiable>(of type: Entity.Type, id: Entity.ID) async -> Entity? {
-        self.getSubject(of: Entity.self).value
+    func getSingleElement<Entity: Identifiable>(of type: Entity.Type, with id: Entity.ID) -> Entity? {
+        getItems(of: Entity.self)
             .first { $0.id == id }
     }
-
-    func add<Entity: Identifiable>(element: Entity) async {
-        let subject = self.getSubject(of: Entity.self)
-        if (subject.value.contains { $0.id == element.id }) {
-            subject.value = subject.value.replacingOcurrences(of: element)
-        } else {
-            subject.value = subject.value.appending(element)
+    
+    func add<Entity: Identifiable>(elements: [Entity]) {
+        elements.forEach { element in
+            self.add(element: element)
         }
     }
 
-    func removeAll<Entity: Identifiable>(of type: Entity.Type) async {
-        self.getSubject(of: type.self).value = []
+    func add<Entity: Identifiable>(element: Entity) {
+        let key = String(describing: Entity.self)
+        var items = getItems(of: Entity.self)
+        if (items.contains { $0.id == element.id }) {
+            store[key] = items.replacingOcurrences(of: element)
+        } else {
+            store[key] = items.appending(element)
+        }
     }
 
-    func replaceAll<Entity: Identifiable>(of type: Entity.Type, with elements: [Entity]) async {
-        let subject = self.getSubject(of: Entity.self)
-        subject.value = elements
+    func removeAll<Entity: Identifiable>(of type: Entity.Type) {
+        let key = String(describing: type)
+        store.removeValue(forKey: key)
+    }
+
+    func replaceAll<Entity: Identifiable>(of type: Entity.Type, with elements: [Entity]) {
+        let key = String(describing: type)
+        store[key] = elements
     }
 
     // MARK: Private
 
-    private func getSubject<Entity: Identifiable>(of type: Entity.Type) -> CurrentValueSubject<[Entity], Never> {
+    private func getItems<Entity: Identifiable>(of type: Entity.Type) -> [Entity] {
         let key = String(describing: type)
-        return store[key] as? CurrentValueSubject<[Entity], Never> ?? {
-            let newSubject = CurrentValueSubject<[Entity], Never>([])
+        return store[key] as? [Entity] ?? {
+            let newSubject = [Entity]()
             self.store[key] = newSubject
             return newSubject
         }()

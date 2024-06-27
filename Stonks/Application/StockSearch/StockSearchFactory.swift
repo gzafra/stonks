@@ -60,7 +60,7 @@ public final class StockSearchFactory: StockSearchFactoryProtocol {
     }
     
     func makeLocalRepository() -> StockSearchLocalRepositoryProtocol {
-        StockSearchLocalRepository(inMemoryDataSource: InMemoryDataSorce())
+        StockSearchLocalRepository(inMemoryDataSource: InMemoryDataSource())
     }
     
     func makeStockSearchApiDataSource() -> StockSearchDataSourceProtocol {

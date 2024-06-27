@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StockTransaction: Identifiable {
+struct StockTransaction: Identifiable, Codable {
     var id: UUID = UUID()
     let ticker: String
 }

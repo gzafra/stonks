@@ -14,22 +14,21 @@ protocol StockSearchLocalRepositoryProtocol {
 }
 
 struct StockSearchLocalRepository: StockSearchLocalRepositoryProtocol {
-    let inMemoryDataSource: DataSourceProtocol
+    let inMemoryDataSource: InMemoryDataSourceProtocol
 
     func getQuotes(ticker: String) -> AnyPublisher<CachedQuotes?, Never> {
-        self.inMemoryDataSource.getSingleElementObervable(of: CachedQuotes.self, with: ticker)
+        Future() { promise in
+            let cachedQuotes = self.inMemoryDataSource.getSingleElement(of: CachedQuotes.self, with: ticker)
+            promise(.success(cachedQuotes))
+        }.eraseToAnyPublisher()
     }
     
     func saveQuotes(quotes: CachedQuotes) {
         // Cache search (Defensive to prevent reaching rate limit)
-        Task {
-            await self.inMemoryDataSource.add(element: quotes)
-        }
-        // Store each quote individually 
+        self.inMemoryDataSource.add(element: quotes)
+        // Store each quote individually
         quotes.quotesResult.forEach { quote in
-            Task {
-                await self.inMemoryDataSource.add(element: quote)
-            }
+            self.inMemoryDataSource.add(element: quote)
         }
     }
 }
