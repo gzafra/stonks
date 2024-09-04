@@ -64,7 +64,8 @@ public final class StockSearchFactory: StockSearchFactoryProtocol {
     }
     
     func makeStockSearchApiDataSource() -> StockSearchDataSourceProtocol {
-        StockSearchFinanceApiDataSource(httpClient: DefaultHTTPClient(requestBuilder: DefaultURLRequestBuilder()))
+        StockSearchFinanceApiDataSource(httpClient: DefaultHTTPClient(requestBuilder: DefaultURLRequestBuilder()), 
+                                        configDataSource: ConfigDataSource(resourceName: "config"))
     }
     
     func makeStockSearchRouter() -> StockSearchRouterProtocol {

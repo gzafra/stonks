@@ -21,6 +21,9 @@
 		B61366D82C21B5CE006BD2C5 /* StockSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61366D72C21B5CE006BD2C5 /* StockSearchView.swift */; };
 		B61366DA2C21B703006BD2C5 /* StockSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61366D92C21B703006BD2C5 /* StockSearchViewModel.swift */; };
 		B61366DC2C21B777006BD2C5 /* StockSearchItemState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61366DB2C21B777006BD2C5 /* StockSearchItemState.swift */; };
+		B61F9D622C888A0000435068 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = B61F9D612C888A0000435068 /* config.plist */; };
+		B61F9D652C888AF800435068 /* ConfigDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F9D642C888AF800435068 /* ConfigDataSource.swift */; };
+		B61F9D672C888CA200435068 /* config.example.plist in Resources */ = {isa = PBXBuildFile; fileRef = B61F9D662C888CA200435068 /* config.example.plist */; };
 		B699C5412C1848A600C10AA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699C5402C1848A600C10AA0 /* AppDelegate.swift */; };
 		B699C5432C1848A600C10AA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B699C5422C1848A600C10AA0 /* SceneDelegate.swift */; };
 		B699C54A2C1848A800C10AA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B699C5492C1848A800C10AA0 /* Assets.xcassets */; };
@@ -66,6 +69,7 @@
 		B6E18B042C2AF31B004960AD /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18B032C2AF31B004960AD /* RouterProtocol.swift */; };
 		B6E18B072C2AF76E004960AD /* AddTransactionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18B062C2AF76E004960AD /* AddTransactionUseCase.swift */; };
 		B6E18B092C2AF897004960AD /* CacheDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E18B082C2AF897004960AD /* CacheDataSource.swift */; };
+		B6E18B472C36D5E7004960AD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B6E18B462C36D5E7004960AD /* README.md */; };
 		B8F4C26C595682E1AEE7D317 /* Pods_Stonks_StonksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C273BD89B95C47E3E84E3DFC /* Pods_Stonks_StonksUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +111,9 @@
 		B61366D72C21B5CE006BD2C5 /* StockSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchView.swift; sourceTree = "<group>"; };
 		B61366D92C21B703006BD2C5 /* StockSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchViewModel.swift; sourceTree = "<group>"; };
 		B61366DB2C21B777006BD2C5 /* StockSearchItemState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchItemState.swift; sourceTree = "<group>"; };
+		B61F9D612C888A0000435068 /* config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		B61F9D642C888AF800435068 /* ConfigDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDataSource.swift; sourceTree = "<group>"; };
+		B61F9D662C888CA200435068 /* config.example.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = config.example.plist; sourceTree = "<group>"; };
 		B699C53D2C1848A600C10AA0 /* Stonks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stonks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B699C5402C1848A600C10AA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B699C5422C1848A600C10AA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +163,7 @@
 		B6E18B032C2AF31B004960AD /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		B6E18B062C2AF76E004960AD /* AddTransactionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionUseCase.swift; sourceTree = "<group>"; };
 		B6E18B082C2AF897004960AD /* CacheDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataSource.swift; sourceTree = "<group>"; };
+		B6E18B462C36D5E7004960AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C273BD89B95C47E3E84E3DFC /* Pods_Stonks_StonksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stonks_StonksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -307,9 +315,18 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		B61F9D632C888AE000435068 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B61F9D642C888AF800435068 /* ConfigDataSource.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		B699C5342C1848A600C10AA0 = {
 			isa = PBXGroup;
 			children = (
+				B6E18B462C36D5E7004960AD /* README.md */,
 				B699C53F2C1848A600C10AA0 /* Stonks */,
 				B699C5562C1848A800C10AA0 /* StonksTests */,
 				B699C5602C1848A800C10AA0 /* StonksUITests */,
@@ -388,6 +405,8 @@
 			children = (
 				B699C5492C1848A800C10AA0 /* Assets.xcassets */,
 				B699C54B2C1848A800C10AA0 /* LaunchScreen.storyboard */,
+				B61F9D612C888A0000435068 /* config.plist */,
+				B61F9D662C888CA200435068 /* config.example.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -515,6 +534,7 @@
 		B6A916A12C22E71C007071FF /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B61F9D632C888AE000435068 /* Config */,
 				B6A916A22C22E728007071FF /* Local */,
 				B6A916762C22C9D2007071FF /* Network */,
 			);
@@ -740,6 +760,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B61F9D622C888A0000435068 /* config.plist in Resources */,
+				B6E18B472C36D5E7004960AD /* README.md in Resources */,
+				B61F9D672C888CA200435068 /* config.example.plist in Resources */,
 				B699C54A2C1848A800C10AA0 /* Assets.xcassets in Resources */,
 				B699C54D2C1848A800C10AA0 /* Base in Resources */,
 			);
@@ -901,6 +924,7 @@
 				B61366D22C219B45006BD2C5 /* AnimatingCellHeight.swift in Sources */,
 				B6A916842C22CBB4007071FF /* FinanceApi.swift in Sources */,
 				B6A916A42C22E748007071FF /* InMemoryDataSource.swift in Sources */,
+				B61F9D652C888AF800435068 /* ConfigDataSource.swift in Sources */,
 				B6E18B042C2AF31B004960AD /* RouterProtocol.swift in Sources */,
 				B699C5412C1848A600C10AA0 /* AppDelegate.swift in Sources */,
 				B6E18B072C2AF76E004960AD /* AddTransactionUseCase.swift in Sources */,
