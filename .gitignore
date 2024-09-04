@@ -163,4 +163,7 @@ Dependencies/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+# Ignore the actual config file with the API key
+config.plist
+
 # End of https://www.toptal.com/developers/gitignore/api/swift,xcode,objective-c,osx
